@@ -76,7 +76,10 @@
     ("my-brightblue"    . "#5c5cff")
     ("my-magenta"       . "#cd00cd")
     ("my-brightyellow"  . "#ffff00")
-    ("my-green"         . "#00cd00"))
+    ("my-green"         . "#00cd00")
+    ("my-gray60"        . "#999999")
+    ("my-gray40"        . "#666666")
+    ("my-gray30"        . "#4d4d4d"))
   "List of Zenburn colors.
 Each element has the form (NAME . HEX).
 
@@ -144,7 +147,7 @@ Also bind `class' to ((class color) (min-colors 89))."
     ((string= system-name "nobrelee2")
      `(menu ((t (:foreground ,zenburn-bg-2 :background ,my-magenta)))))
     ((string= system-name "gsmblog.net")
-     `(menu ((t (:foreground ,zenburn-bg-2 :background ,my-green-bg)))))
+     `(menu ((t (:foreground ,zenburn-bg-2 :background ,my-green)))))
     (t 
      `(menu ((t (:foreground ,zenburn-bg-2 :background ,my-brightyellow))))))
 
@@ -221,7 +224,59 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(newsticker-treeview-selection-face ((t (:background ,zenburn-bg-1 :foreground ,zenburn-yellow))))
 ;;;; Third-party
 
+;;;;; workgroups
 
+   (cond
+    ((string= system-name "tequila.org")
+     `(wg-other-workgroup-face ((t (:foreground ,my-brightblue :background ,zenburn-bg)))))
+    ((string= system-name "nobrelee2")
+     `(wg-other-workgroup-face ((t (:foreground ,my-magenta :background ,zenburn-bg)))))
+    ((string= system-name "gsmblog.net")
+     `(wg-other-workgroup-face ((t (:foreground ,my-green :background ,zenburn-bg)))))
+    (t 
+     `(wg-other-workgroup-face ((t (:foreground ,my-brightyellow :background ,zenburn-bg))))))
+
+   (cond
+    ((string= system-name "tequila.org")
+     `(wg-divider-face ((t (:foreground ,my-brightblue :background ,zenburn-bg)))))
+    ((string= system-name "nobrelee2")
+     `(wg-divider-face ((t (:foreground ,my-magenta :background ,zenburn-bg)))))
+    ((string= system-name "gsmblog.net")
+     `(wg-divider-face ((t (:foreground ,my-green :background ,zenburn-bg)))))
+    (t 
+     `(wg-divider-face ((t (:foreground ,my-brightyellow :background ,zenburn-bg))))))
+
+   (cond
+    ((string= system-name "tequila.org")
+     `(wg-brace-face ((t (:foreground ,my-brightblue :background ,zenburn-bg)))))
+    ((string= system-name "nobrelee2")
+     `(wg-brace-face ((t (:foreground ,my-magenta :background ,zenburn-bg)))))
+    ((string= system-name "gsmblog.net")
+     `(wg-brace-face ((t (:foreground ,my-green :background ,zenburn-bg)))))
+    (t 
+     `(wg-brace-face ((t (:foreground ,my-brightyellow :background ,zenburn-bg))))))
+
+   (cond
+    ((string= system-name "tequila.org")
+     `(wg-message-face ((t (:foreground ,my-brightblue :background ,zenburn-bg)))))
+    ((string= system-name "nobrelee2")
+     `(wg-message-face ((t (:foreground ,my-magenta :background ,zenburn-bg)))))
+    ((string= system-name "gsmblog.net")
+     `(wg-message-face ((t (:foreground ,my-green :background ,zenburn-bg)))))
+    (t 
+     `(wg-message-face ((t (:foreground ,my-brightyellow :background ,zenburn-bg))))))
+
+   (cond
+    ((string= system-name "tequila.org")
+     `(wg-command-face ((t (:foreground ,zenburn-bg-2 :background ,my-brightblue)))))
+    ((string= system-name "nobrelee2")
+     `(wg-command-face ((t (:foreground ,zenburn-bg-2 :background ,my-magenta)))))
+    ((string= system-name "gsmblog.net")
+     `(wg-command-face ((t (:foreground ,zenburn-bg-2 :background ,my-green)))))
+    (t 
+     `(wg-comand-face ((t (:foreground ,zenburn-bg-2 :background ,my-brightyellow))))))
+
+   `(wg-previous-workgroup-face ((t (:foreground ,my-gray60 :background ,zenburn-bg))))
 
 
 ;;;;; ace-jump
