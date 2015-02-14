@@ -268,13 +268,13 @@ Also bind `class' to ((class color) (min-colors 89))."
 
    (cond
     ((string= system-name "tequila.org")
-     `(wg-command-face ((t (:foreground ,zenburn-bg-2 :background ,my-brightblue)))))
+     `(wg-command-face ((t (:foreground ,my-brightblue :background ,zenburn-bg)))))
     ((string= system-name "nobrelee2")
-     `(wg-command-face ((t (:foreground ,zenburn-bg-2 :background ,my-magenta)))))
+     `(wg-command-face ((t (:foreground ,my-magenta :background ,zenburn-bg)))))
     ((string= system-name "gsmblog.net")
-     `(wg-command-face ((t (:foreground ,zenburn-bg-2 :background ,my-green)))))
+     `(wg-command-face ((t (:foreground ,my-green :background ,zenburn-bg)))))
     (t 
-     `(wg-comand-face ((t (:foreground ,zenburn-bg-2 :background ,my-brightyellow))))))
+     `(wg-command-face ((t (:foreground ,my-brightyellow :background ,zenburn-bg))))))
 
    `(wg-previous-workgroup-face ((t (:foreground ,my-gray60 :background ,zenburn-bg))))
 
