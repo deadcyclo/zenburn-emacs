@@ -1,4 +1,4 @@
-[![License GPL 3][badge-license]](http://www.gnu.org/licenses/gpl-3.0.txt)]
+[![License GPL 3][badge-license]](http://www.gnu.org/licenses/gpl-3.0.txt)
 
 ## About
 
@@ -35,3 +35,4 @@ Now you can load the theme with the interactive function `load-theme` like this:
 Cheers,<br\>
 [Brendan](http://brendan.is)
 
+[badge-license]: https://img.shields.io/badge/license-GPL_3-brightgreen.svg?style=flat-square
