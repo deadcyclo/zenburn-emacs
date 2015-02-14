@@ -1,6 +1,7 @@
 ;;; zenburn-theme.el --- A low contrast color theme for Emacs.
 
 ;; Copyright (C) 2011-2014 Bozhidar Batsov
+;; Copyright (C) 2015 Brendan Johan Lee
 
 ;; Author: Bozhidar Batsov <bozhidar@batsov.com>
 ;; URL: http://github.com/bbatsov/zenburn-emacs
@@ -71,7 +72,11 @@
     ("zenburn-blue-3"   . "#5C888B")
     ("zenburn-blue-4"   . "#4C7073")
     ("zenburn-blue-5"   . "#366060")
-    ("zenburn-magenta"  . "#DC8CC3"))
+    ("zenburn-magenta"  . "#DC8CC3")
+    ("my-brightblue"    . "#5c5cff")
+    ("my-magenta"       . "#cd00cd")
+    ("my-brightyellow"  . "#ffff00")
+    ("my-green"         . "#00cd00"))
   "List of Zenburn colors.
 Each element has the form (NAME . HEX).
 
@@ -133,14 +138,42 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(isearch-fail ((t (:foreground ,zenburn-fg :background ,zenburn-red-4))))
    `(lazy-highlight ((t (:foreground ,zenburn-yellow-2 :weight bold :background ,zenburn-bg-05))))
 
-   `(menu ((t (:foreground ,zenburn-fg :background ,zenburn-bg))))
-   `(minibuffer-prompt ((t (:foreground ,zenburn-yellow))))
+   (cond
+    ((string= system-name "tequila.org")
+     `(menu ((t (:foreground ,zenburn-bg-2 :background ,my-brightblue)))))
+    ((string= system-name "nobrelee2")
+     `(menu ((t (:foreground ,zenburn-bg-2 :background ,my-magenta)))))
+    ((string= system-name "gsmblog.net")
+     `(menu ((t (:foreground ,zenburn-bg-2 :background ,my-green-bg)))))
+    (t 
+     `(menu ((t (:foreground ,zenburn-bg-2 :background ,my-brightyellow))))))
+
+   (cond
+    ((string= system-name "tequila.org")
+     `(minibuffer-prompt ((t (:foreground ,my-brightblue)))))
+    ((string= system-name "nobrelee2")
+     `(minibuffer-prompt ((t (:foreground ,my-magenta)))))
+    ((string= system-name "gsmblog.net")
+     `(minibuffer-prompt ((t (:foreground ,my-green)))))
+    (t 
+     `(minibuffer-prompt ((t (:foreground ,my-brightyellow))))))
+   
    `(mode-line
      ((,class (:foreground ,zenburn-green+1
                            :background ,zenburn-bg-1
                            :box (:line-width -1 :style released-button)))
       (t :inverse-video t)))
-   `(mode-line-buffer-id ((t (:foreground ,zenburn-yellow :weight bold))))
+
+   (cond
+    ((string= system-name "tequila.org")
+     `(mode-line-buffer-id ((t (:foreground ,my-brightblue :weight bold)))))
+    ((string= system-name "nobrelee2")
+     `(mode-line-buffer-id ((t (:foreground ,my-magenta :weight bold)))))
+    ((string= system-name "gsmblog.net")
+     `(mode-line-buffer-id ((t (:foreground ,my-green :weight bold)))))
+    (t 
+     `(mode-line-buffer-id ((t (:foreground ,my-brightyellow :weight bold))))))
+
    `(mode-line-inactive
      ((t (:foreground ,zenburn-green-1
                       :background ,zenburn-bg-05
@@ -187,6 +220,10 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(newsticker-treeview-old-face ((t (:foreground ,zenburn-bg+3))))
    `(newsticker-treeview-selection-face ((t (:background ,zenburn-bg-1 :foreground ,zenburn-yellow))))
 ;;;; Third-party
+
+
+
+
 ;;;;; ace-jump
    `(ace-jump-face-background
      ((t (:foreground ,zenburn-fg-1 :background ,zenburn-bg :inverse-video nil))))
